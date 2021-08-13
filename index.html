@@ -53,7 +53,19 @@
             height: 15px;
             cursor: ew-resize;
             background: #FFF;
-            box-shadow: -405px 0 0 400px #605E5C;
+            box-shadow: -405px 0 0 400px #9584FF;
+            border-radius: 50%;
+            
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 15px;
+            -moz-appearance: none;
+  			appearance: none;
+            height: 15px;
+            cursor: ew-resize;
+            background: #FFF;
+            border: 0px;
+            box-shadow: -405px 0 0 400px #9584FF;
             border-radius: 50%;
             
         }
@@ -64,13 +76,18 @@
           <h1 class="text-gray-500 text-xl">Bibliai idézetecskék &lt;3</h1>   
           <form class="mt-6">
                <label for="quote" class="text-gray-600">Idézet:</label>
-               <textarea class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-2" id="quote" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+               <textarea class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-3" id="quote" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
                <label for="author" class="text-gray-600">Szerző:</label>
-               <input type="text" class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-5" id="author" value="John Doe 13:22">
+               <input type="text" class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-6" id="author" value="John Doe 13:22">
                <label for="fontsize" class="text-gray-600">Betűméret:</label>
-               <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-5 mt-1" type="range" min="50" max="200" step="5" value="100" />
+               <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-6 mt-1" type="range" min="50" max="200" step="5" value="100" />
+               <label for="fontsize" class="text-gray-600">Téma:</label>
+               <div class="flex mb-6 w-full" id="theme">
+                    <div id="light" class="h-20 bg-gray-50 w-1/2 flex justify-center items-center text-gray-500 text-sm font-medium cursor-pointer border-2 border-indigo-300" onclick="setTheme(this)">Világos</div>
+                    <div id="dark" class="h-20 bg-gray-600 ml-2 w-1/2 flex justify-center items-center text-gray-300 text-sm font-medium cursor-pointer border-2 border-gray-100" onclick="setTheme(this)">Sötét</div>
+               </div>
                <label for="image" class="text-gray-600">Háttér:</label>
-               <input class="hidden mb-5" type="file" id="imgfile">
+               <input class="hidden mb-6" type="file" id="imgfile">
                <ul id="image" class="flex flex-wrap pt-2">
                     <li id="wesley" class="border-4 border-indigo-500 opacity-75 ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="wesley.jpg"></div></li>
                     <li id="cross" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="cross.jpg"></div></li>
@@ -88,10 +105,12 @@
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
                <img src="wesley.jpg" class="object-contain opacity-70 w-full" id="bgimage">
-               <div class="text-gray-700 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
-                    <div id="imgText" class="relative font-medium opacity-80 bg-white p-20 px-20 border-gray-400" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: #66abcf;">
-                         <p id="quoteText">„”</p>
-                         <p id="quoteAuthor" class="italic mt-3 text-gray-600" style="font-size:0.9em;">()</p>
+               <div class="text-gray-800 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
+                    <div class="opacity-75">
+                         <div id="imgText" class="relative font-medium bg-white p-20 px-20 border-gray-400" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: #66abcf;">
+                              <p id="quoteText">„”</p>
+                              <p id="quoteAuthor" class="italic mt-3 text-gray-700" style="font-size:0.9em;">()</p>
+                         </div>
                     </div>
                </div>
           </div>
@@ -153,6 +172,40 @@
                     document.getElementById('bgimage').setAttribute('src', URL.createObjectURL(plusimgs[element.id]));
                } else {
                     document.getElementById('bgimage').setAttribute('src', background.querySelector('img').getAttribute('src'));
+               }
+          }
+          function setTheme(element) {
+               var theme = element.id;
+               for (var node of document.getElementById('theme').children) {
+                    node.classList.remove("border-indigo-300");
+                    node.classList.add("border-gray-100");
+               }
+               element.classList.add("border-indigo-300");
+               element.classList.remove("border-gray-100");
+               if (theme == 'light') {
+                    document.getElementById('imgDiv').classList.add('bg-white');
+                    document.getElementById('imgDiv').classList.remove('bg-black');
+                    document.getElementById('bgimage').classList.add('opacity-70');
+                    document.getElementById('bgimage').classList.remove('opacity-80');
+                    document.getElementById('imgText').classList.add('bg-white');
+                    document.getElementById('imgText').classList.remove('bg-black');
+                    document.getElementById('quoteText').classList.add('text-gray-800');
+                    document.getElementById('quoteText').classList.remove('text-gray-300');
+                    document.getElementById('quoteAuthor').classList.add('text-gray-700');
+                    document.getElementById('quoteAuthor').classList.remove('text-gray-400');
+                    document.getElementById('imgText').style.borderColor = '#66abcf';
+               } else {
+                    document.getElementById('imgDiv').classList.add('bg-black');
+                    document.getElementById('imgDiv').classList.remove('bg-white');
+                    document.getElementById('bgimage').classList.add('opacity-80');
+                    document.getElementById('bgimage').classList.remove('opacity-70');
+                    document.getElementById('imgText').classList.add('bg-black');
+                    document.getElementById('imgText').classList.remove('bg-white');
+                    document.getElementById('quoteText').classList.remove('text-gray-800');
+                    document.getElementById('quoteText').classList.add('text-gray-300');
+                    document.getElementById('quoteAuthor').classList.remove('text-gray-700');
+                    document.getElementById('quoteAuthor').classList.add('text-gray-400');
+                    document.getElementById('imgText').style.borderColor = '#25282b';
                }
           }
           function chooseFile() {
