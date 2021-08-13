@@ -104,10 +104,10 @@
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="reset()">Töröl</button>
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
-               <img src="wesley.jpg" class="object-contain opacity-70 w-full" id="bgimage">
+               <img src="wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
                <div class="text-gray-800 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
-                    <div class="opacity-75">
-                         <div id="imgText" class="relative font-medium bg-white p-20 px-20 border-gray-400" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: #66abcf;">
+                    <div class="opacity-80">
+                         <div id="imgText" class="relative font-medium bg-white p-20 px-20" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: rgba(102, 171, 207, 0.5);">
                               <p id="quoteText">„”</p>
                               <p id="quoteAuthor" class="italic mt-3 text-gray-700" style="font-size:0.9em;">()</p>
                          </div>
@@ -193,7 +193,7 @@
                     document.getElementById('quoteText').classList.remove('text-gray-300');
                     document.getElementById('quoteAuthor').classList.add('text-gray-700');
                     document.getElementById('quoteAuthor').classList.remove('text-gray-400');
-                    document.getElementById('imgText').style.borderColor = '#66abcf';
+                    document.getElementById('imgText').style.borderColor = 'rgba(102, 171, 207, 0.64)';
                } else {
                     document.getElementById('imgDiv').classList.add('bg-black');
                     document.getElementById('imgDiv').classList.remove('bg-white');
@@ -205,7 +205,7 @@
                     document.getElementById('quoteText').classList.add('text-gray-300');
                     document.getElementById('quoteAuthor').classList.remove('text-gray-700');
                     document.getElementById('quoteAuthor').classList.add('text-gray-400');
-                    document.getElementById('imgText').style.borderColor = '#4381a1';
+                    document.getElementById('imgText').style.borderColor = 'rgba(82, 75, 87, 0.64)';
                }
           }
           function chooseFile() {
