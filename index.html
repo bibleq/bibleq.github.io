@@ -44,17 +44,33 @@
           filter: grayscale(100%);
           -webkit-filter: grayscale(100%);
      }
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+     
+        input[type="range"]::-webkit-slider-thumb {
+            width: 15px;
+            -webkit-appearance: none;
+  			appearance: none;
+            height: 15px;
+            cursor: ew-resize;
+            background: #FFF;
+            box-shadow: -405px 0 0 400px #605E5C;
+            border-radius: 50%;
+            
+        }
+    }
 </style>
 <body class="px-2" style="font-family: 'Montserrat', sans-serif; min-width: 1024px;">
      <div class="container max-w-4xl mx-auto text-gray-800 p-8 border shadow shadow-md mt-12 mb-12">
-          <h1 class="text-gray-500 text-xl">Bibliai idézetecskék &lt;3</h1>
+          <h1 class="text-gray-500 text-xl">Bibliai idézetecskék &lt;3</h1>   
           <form class="mt-6">
                <label for="quote" class="text-gray-600">Idézet:</label>
-               <textarea class="border border-gray-300 w-full p-2 px-4 focus:outline-none mt-1 mb-3" id="quote" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
-               <label for="author" class="text-gray-600 mt-6">Szerző:</label>
-               <input type="text" class="border border-gray-300 w-full p-2 px-4 focus:outline-none mt-1 mb-3" id="author" value="John Doe 14:88">
-               <label for="image" class="text-gray-600 mt-6">Háttér:</label>
-               <input class="hidden" type="file" id="imgfile">
+               <textarea class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-2" id="quote" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+               <label for="author" class="text-gray-600">Szerző:</label>
+               <input type="text" class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-5" id="author" value="John Doe 14:88">
+               <label for="fontsize" class="text-gray-600">Betűméret:</label>
+               <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-5 mt-1" type="range" min="50" max="200" step="5" value="15" />
+               <label for="image" class="text-gray-600">Háttér:</label>
+               <input class="hidden mb-5" type="file" id="imgfile">
                <ul id="image" class="flex flex-wrap pt-2">
                     <li id="wesley" class="border-4 border-indigo-500 opacity-75 ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="wesley.jpg"></div></li>
                     <li id="cross" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="cross.jpg"></div></li>
@@ -73,9 +89,9 @@
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
                <img src="wesley.jpg" class="object-contain opacity-70 w-full" id="bgimage">
                <div class="text-gray-700 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
-                    <div class="relative font-medium opacity-80 bg-white p-20 px-20 border-gray-400" style="left:-50%; font-family: 'EB Garamond'; font-size:1.68rem; line-height: 2em; border-left-width:10px; border-color: #66abcf;">
+                    <div id="imgText" class="relative font-medium opacity-80 bg-white p-20 px-20 border-gray-400" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: #66abcf;">
                          <p id="quoteText">„”</p>
-                         <p id="quoteAuthor" class="italic mt-3 text-gray-600" style="font-size:1.52rem;">()</p>
+                         <p id="quoteAuthor" class="italic mt-3 text-gray-600" style="font-size:0.9em;">()</p>
                     </div>
                </div>
           </div>
@@ -147,6 +163,7 @@
                document.getElementById('quoteAuthor').textContent = '(' + document.getElementById('author').value + ')';
                document.getElementById('imgDiv').classList.remove('hidden');
                document.getElementById('canvasDiv').innerHTML = "";
+               document.getElementById('imgText').style.fontSize = (1.68 * document.getElementById('fontsize').value / 100).toString() + 'rem';
                html2canvas(document.getElementById('imgDiv')).then(function(arg) {
                     arg.id = "canvas";
                     document.getElementById('canvasDiv').appendChild(arg);

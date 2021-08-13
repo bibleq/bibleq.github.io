@@ -13,5 +13,8 @@
     "dom-to-image": "^2.6.0",
     "html-to-image": "^1.7.0",
     "html2canvas": "^1.2.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1"
   }
 }
