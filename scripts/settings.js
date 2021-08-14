@@ -52,28 +52,18 @@ function setBackground(element) {
         document.getElementById('bgimage').setAttribute('src', src);
     }
 }
+
+function setFont(font) {
+    document.getElementById('imgText').style.fontFamily = font;
+    document.getElementById('fontLabel').innerHTML = font;
+}
+
 function setTheme(element) {
     var theme = element.id;
     for (var node of document.getElementById('theme').children) {
-        node.querySelector("div").classList.add("opacity-100");
-        node.querySelector("div").classList.remove("opacity-80");
-        if (node.querySelector("div").id == 'light') {
-                node.querySelector("div").classList.add("text-gray-500");
-                node.querySelector("div").classList.remove("text-gray-600");
-        } else {
-                node.querySelector("div").classList.add("text-gray-300");
-                node.querySelector("div").classList.remove("text-gray-200");
-        }
+        node.classList.remove("border-indigo-300");
     }
-    if (element.id == 'light') {
-        element.classList.remove("text-gray-500");
-        element.classList.add("text-gray-600");
-    } else {
-        element.classList.remove("text-gray-300");
-        element.classList.add("text-gray-200");
-    }
-    element.classList.add("opacity-80");
-    element.classList.remove("opacity-100");
+    element.classList.add("border-indigo-300");
     if (theme == 'light') {
         document.getElementById('imgDiv').classList.add('bg-white');
         document.getElementById('imgDiv').classList.remove('bg-black');
@@ -101,27 +91,10 @@ function setTheme(element) {
     }
 }
 function setHeader(element) {
-    var theme = element.id;
     for (var node of document.getElementById('header').children) {
-        node.querySelector("div").classList.add("opacity-100");
-        node.querySelector("div").classList.remove("opacity-80");
-        if (node.querySelector("div").id == 'empty') {
-                node.querySelector("div").classList.add("text-gray-500");
-                node.querySelector("div").classList.remove("text-gray-600");
-        } else {
-                node.querySelector("div").classList.add("text-gray-300");
-                node.querySelector("div").classList.remove("text-gray-200");
-        }
+        node.classList.remove("border-indigo-300");
     }
-    if (element.id == 'empty') {
-        element.classList.remove("text-gray-500");
-        element.classList.add("text-gray-600");
-    } else {
-        element.classList.remove("text-gray-300");
-        element.classList.add("text-gray-200");
-    }
-    element.classList.add("opacity-80");
-    element.classList.remove("opacity-100");
+    element.classList.add("border-indigo-300");
     if (element.id == 'empty') {
         document.getElementById('imgHeader').classList.add('hidden');
     } else {
@@ -161,6 +134,7 @@ function restore() {
     setBackground(document.getElementById('wesley'));
     setTheme(document.getElementById('light'));
     setHeader(document.getElementById('empty'));
+    setFont('Crimson Pro');
     document.getElementById('fontsize').value = '100';
     reset();
 }
