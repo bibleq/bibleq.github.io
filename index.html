@@ -121,7 +121,7 @@
           </form>
           <div class="flex justify-center mt-4">
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white mx-1 hover:bg-gray-500 cursor-pointer text-sm w-60" id="generate" onclick="generate()">Generál</button>
-               <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="reset()">Töröl</button>
+               <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="restore()">Visszaállít</button>
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
                <img src="img/original/wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
@@ -143,9 +143,7 @@
                     </div>
                </div>
           </div>
-          <div class="mt-8 hidden" id="canvasDiv">
-               <canvas id="canvas"></canvas>
-          </div>
+          <div class="mt-8 hidden" id="canvasDiv"></div>
      </div>
      <script src="https://cdn.rawgit.com/tsayen/dom-to-image/bfc00a6c5bba731027820199acd7b0a6e92149d8/dist/dom-to-image.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.2.2/html2canvas.min.js"></script>
@@ -290,24 +288,32 @@
                document.getElementById('quoteAuthor').textContent = '(' + document.getElementById('author').value + ')';
                document.getElementById('imgDiv').classList.remove('hidden');
                document.getElementById('imgText').style.fontSize = (1.48  * document.getElementById('fontsize').value / 100).toString() + 'rem';
+
                html2canvas(document.getElementById('imgDiv')).then(function(arg) {
                     reset();
                     arg.id = "canvas2";
-                    document.getElementById('canvasDiv').innerHTML += "<canvas id='canvas2'></canvas>";
+                    document.getElementById('canvasDiv').innerHTML += "<canvas id='canvas' class='object-contain w-full'></canvas>";
                     document.getElementById('canvasDiv').appendChild(arg);
                     document.getElementById('canvasDiv').classList.remove('hidden');
                     document.getElementById('imgDiv').classList.add('hidden');
 
-                    var canvas2 = document.getElementById('canvas2');
-                    var context = canvas2.getContext('2d');
+                    var canvas = document.getElementById('canvas');
+                    var context = canvas.getContext('2d');
                     var height = arg.height - 1;
                     var width = arg.width;
 
-                    canvas2.width = width;
-                    canvas2.height = height;
+                    canvas.width = width;
+                    canvas.height = height;
                     context.drawImage(arg, 0, 0, width, height, 0, 0, width, height);
                     arg.remove();
                });
+          }
+          function restore() {
+               setBackground(document.getElementById('wesley'));
+               setTheme(document.getElementById('light'));
+               setHeader(document.getElementById('empty'));
+               document.getElementById('fontsize').value = '100';
+               reset();
           }
           function reset() {
                document.getElementById('canvasDiv').innerHTML = "";
