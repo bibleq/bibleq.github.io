@@ -105,17 +105,17 @@
                <input class="hidden" type="file" id="imgfile">
                <div class="flex justify-center mb-6 mt-1">
                     <ul id="image" class="flex flex-wrap">
-                         <li id="wesley" class="border-4 border-indigo-400 opacity-75 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="wesley.jpg"></div></li>
-                         <li id="cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="cross.jpg"></div></li>
-                         <li id="christ" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="christ.jpg"></div></li>
-                         <li id="bible" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="bible.jpg"></div></li>
-                         <li id="paul" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="paul.jpg"></div></li>
-                         <li id="luther" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="luther.jpg"></div></li>
-                         <li id="kalvin" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="kalvin.png"></div></li>
-                         <li id="3cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="3cross.jpg"></div></li>
-                         <li id="fish" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="fish.jpeg"></div></li>
-                         <li id="christ2" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="christ2.jpg"></div></li>
-                         <li id="upload" class="border-4 opacity-50 border-white cursor-pointer" onclick="chooseFile()"><div type="file" class="w-48 h-48 bg-gray-300 flex justify-center text-gray-600 text-6xl items-center">+</div></li>
+                         <li id="wesley" class="border-4 border-indigo-400 opacity-75 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/wesley.jpg"></div></li>
+                         <li id="cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/cross.jpg"></div></li>
+                         <li id="christ" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/christ.jpg"></div></li>
+                         <li id="bible" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/bible.jpg"></div></li>
+                         <li id="paul" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/paul.jpg"></div></li>
+                         <li id="luther" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/luther.jpg"></div></li>
+                         <li id="kalvin" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/kalvin.png"></div></li>
+                         <li id="3cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/3cross.jpg"></div></li>
+                         <li id="fish" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/fish.jpeg"></div></li>
+                         <li id="christ2" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="img/thumbnail/christ2.jpg"></div></li>
+                         <li id="upload" class="border-4 opacity-50 border-white cursor-pointer" onclick="chooseFile()"><div type="file" class="w-48 h-48 bg-gray-300 flex justify-center text-gray-600 text-5xl items-center">+</div></li>
                     </ul>
                </div>
           </form>
@@ -124,7 +124,7 @@
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="reset()">Töröl</button>
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
-               <img src="wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
+               <img src="img/original/wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
                <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.8);">
                     <img src="met.png" class="h-20">
                     <div class="flex">
@@ -201,7 +201,8 @@
                if (element.getAttribute('name') == 'plus') {
                     document.getElementById('bgimage').setAttribute('src', URL.createObjectURL(plusimgs[element.id]));
                } else {
-                    document.getElementById('bgimage').setAttribute('src', background.querySelector('img').getAttribute('src'));
+                    var src = 'img/original/' + background.querySelector('img').getAttribute('src').split('/')[2];
+                    document.getElementById('bgimage').setAttribute('src', src);
                }
           }
           function setTheme(element) {
