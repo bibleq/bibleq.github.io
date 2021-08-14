@@ -124,7 +124,7 @@
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="reset()">Töröl</button>
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
-               <img src="wesley.jpg" class="object-contain opacity-90 w-full h-full" id="bgimage">
+               <img src="wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
                <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.8);">
                     <img src="met.png" class="h-20">
                     <div class="flex">
@@ -143,7 +143,9 @@
                     </div>
                </div>
           </div>
-          <div class="mt-8 hidden" id="canvasDiv"></div>
+          <div class="mt-8 hidden" id="canvasDiv">
+               <canvas id="canvas"></canvas>
+          </div>
      </div>
      <script src="https://cdn.rawgit.com/tsayen/dom-to-image/bfc00a6c5bba731027820199acd7b0a6e92149d8/dist/dom-to-image.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.2.2/html2canvas.min.js"></script>
@@ -154,23 +156,23 @@
           var plusid = 1;
 
           window.addEventListener('load', function() {
+
                document.querySelector('input[type="file"]').addEventListener('change', function() {
                     if (this.files && this.files[0]) {
+
                          var images = document.getElementById('image');
-                         images.innerHTML += '<li id="plus" name="plus" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src=""></div></li>'
-                         
                          var element = images.children[images.children.length - 1];
                          var img = element.querySelector('img');
                          var id = 'plus' + plusid.toString();
 
+                         images.innerHTML += '<li id="plus" name="plus" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src=""></div></li>'
                          element.id = id;
                          plusid++;
 
-                         img.onload = () => {
-                              URL.revokeObjectURL(img.src);
-                         }
+                         img.onload = () => URL.revokeObjectURL(img.src);
                          img.src = URL.createObjectURL(this.files[0]);
                          plusimgs[id] = this.files[0];
+
                          setBackground(document.getElementById(id));
 
                          for (var node of document.querySelectorAll('li[name="plus"]')) {
@@ -178,6 +180,7 @@
                          }
                          var upload = document.getElementById('upload');
                          var newUpload = upload.cloneNode(true);
+
                          upload.remove();
                          images.appendChild(newUpload);
                     }
@@ -288,10 +291,21 @@
                document.getElementById('imgText').style.fontSize = (1.48  * document.getElementById('fontsize').value / 100).toString() + 'rem';
                html2canvas(document.getElementById('imgDiv')).then(function(arg) {
                     reset();
-                    arg.id = "canvas";
+                    arg.id = "canvas2";
+                    document.getElementById('canvasDiv').innerHTML += "<canvas id='canvas2'></canvas>";
                     document.getElementById('canvasDiv').appendChild(arg);
                     document.getElementById('canvasDiv').classList.remove('hidden');
                     document.getElementById('imgDiv').classList.add('hidden');
+
+                    var canvas2 = document.getElementById('canvas2');
+                    var context = canvas2.getContext('2d');
+                    var height = arg.height - 1;
+                    var width = arg.width;
+
+                    canvas2.width = width;
+                    canvas2.height = height;
+                    context.drawImage(arg, 0, 0, width, height, 0, 0, width, height);
+                    arg.remove();
                });
           }
           function reset() {
