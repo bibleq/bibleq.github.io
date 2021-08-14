@@ -9,7 +9,9 @@
      <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
 </head>
@@ -88,7 +90,7 @@
                <label for="logo" class="text-gray-600">Betűtípus:</label>
                <div x-data="{ open: false }" class="w-full mb-6 mt-1 relative">
                     <div class="flex justify-between items-center bg-gray-50 cursor-pointer rounded-lg border p-2 px-4" @click="open = !open">
-                         <div id="fontLabel">Crimson Pro</div>
+                         <div id="fontLabel">Amiri</div>
                          <svg version="1.1" class="text-gray-400 fill-current h-3 w-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                               width="123.97px" height="123.97px" viewBox="0 0 123.97 123.97" style="enable-background:new 0 0 123.97 123.97;"
                               xml:space="preserve">
@@ -98,9 +100,11 @@
                          </svg>
                     </div>
                     <div class="absolute z-100 border w-full mt-2 bg-white flex-col" x-show="open" @click.away = "open = false">
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Amiri')" @click = "open = false">Amiri</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Crimson Pro')" @click = "open = false">Crimson Pro</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Merriweather')" @click = "open = false">Merriweather</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('EB Garamond')" @click = "open = false">EB Garamond</div>
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Cormorant Garamond')" @click = "open = false">Cormorant Garamond</div>
                     </div>
                </div>
                <label for="fontsize" class="text-gray-600">Téma:</label>
@@ -148,7 +152,7 @@
                </div>
                <div class="text-gray-800 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
                     <div class="opacity-80">
-                         <div id="imgText" class="relative font-medium bg-white p-20 pb-20 px-20" style="left:-50%; font-family: 'Crimson Pro'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
+                         <div id="imgText" class="relative bg-white p-20 pb-20 px-20" style="left:-50%; font-family: 'Amiri'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
                               <p id="quoteText">„”</p>
                               <p id="quoteAuthor" class="italic mt-3 text-gray-700" style="font-size:0.9em;">()</p>
                          </div>

@@ -134,7 +134,7 @@ function restore() {
     setBackground(document.getElementById('wesley'));
     setTheme(document.getElementById('light'));
     setHeader(document.getElementById('empty'));
-    setFont('Crimson Pro');
+    setFont('Amiri');
     document.getElementById('fontsize').value = '100';
     reset();
 }
