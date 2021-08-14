@@ -88,7 +88,7 @@
                <label for="logo" class="text-gray-600">Betűtípus:</label>
                <div x-data="{ open: false }" class="w-full mb-6 mt-1 relative">
                     <div class="flex justify-between items-center bg-gray-50 cursor-pointer rounded-lg border p-2 px-4" @click="open = !open">
-                         <div id="fontLabel">EB Garamond</div>
+                         <div id="fontLabel">Crimson Pro</div>
                          <svg version="1.1" class="text-gray-400 fill-current h-3 w-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                               width="123.97px" height="123.97px" viewBox="0 0 123.97 123.97" style="enable-background:new 0 0 123.97 123.97;"
                               xml:space="preserve">
@@ -100,7 +100,7 @@
                     <div class="absolute z-100 border w-full mt-2 bg-white flex-col" x-show="open" @click.away = "open = false">
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Crimson Pro')" @click = "open = false">Crimson Pro</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Merriweather')" @click = "open = false">Merriweather</div>
-                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('EB Garamoond')" @click = "open = false">EB Garamond</div>
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('EB Garamond')" @click = "open = false">EB Garamond</div>
                     </div>
                </div>
                <label for="fontsize" class="text-gray-600">Téma:</label>
