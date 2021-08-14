@@ -71,7 +71,7 @@
         }
     }
 </style>
-<body class="px-2" style="font-family: 'Montserrat', sans-serif; min-width: 1024px;">
+<body class="px-2" class="bg-gray-50" style="font-family: 'Montserrat', sans-serif; min-width: 1024px;">
      <div class="container max-w-4xl mx-auto text-gray-800 p-8 border shadow shadow-md mt-12 mb-12">
           <h1 class="text-gray-500 text-xl">Bibliai idézetecskék &lt;3</h1>   
           <form class="mt-6">
@@ -82,45 +82,68 @@
                <label for="fontsize" class="text-gray-600">Betűméret:</label>
                <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-6 mt-1" type="range" min="50" max="200" step="5" value="100" />
                <label for="fontsize" class="text-gray-600">Téma:</label>
-               <div class="flex mb-6 w-full" id="theme">
-                    <div class="bg-indigo-500 w-1/2">
-                         <div id="light" class="h-20 bg-gray-50 flex justify-center items-center text-gray-600 text-sm font-medium cursor-pointer opacity-90 border" onclick="setTheme(this)">Világos</div>
+               <div class="flex mb-6 w-full mt-1" id="theme">
+                    <div class="bg-indigo-600 w-1/2">
+                         <div id="light" class="border h-20 bg-gray-50 flex justify-center items-center text-gray-600 text-sm font-medium cursor-pointer opacity-80" onclick="setTheme(this)">Világos</div>
                     </div>
-                    <div class="bg-indigo-500 w-1/2 ml-2">
-                         <div id="dark" class="h-20 bg-gray-600 flex justify-center items-center text-gray-300 text-sm font-medium cursor-pointer opacity-100 border" onclick="setTheme(this)">Sötét</div>
+                    <div class="bg-indigo-600 w-1/2 ml-2">
+                         <div id="dark" class="border h-20 bg-gray-500 flex justify-center items-center text-gray-300 text-sm font-medium cursor-pointer opacity-100" onclick="setTheme(this)">Sötét</div>
+                    </div>
+               </div>
+               <label for="logo" class="text-gray-600">Fejléc:</label>
+               <div class="flex mb-6 w-full mt-1" id="header">
+                    <div class="bg-indigo-600 w-1/2">
+                         <div id="empty" class="border h-20 bg-gray-50 flex justify-center items-center text-gray-600 text-sm font-medium cursor-pointer opacity-80" onclick="setHeader(this)">Üres fejléc</div>
+                    </div>
+                    <div class="bg-indigo-600 w-1/2 ml-2">
+                         <div id="met" class="border h-20 bg-gray-500 flex justify-center items-center text-gray-300 text-sm font-medium cursor-pointer opacity-100" onclick="setHeader(this)">
+                              MET fejléc
+                         </div>
                     </div>
                </div>
                <label for="image" class="text-gray-600">Háttér:</label>
-               <input class="hidden mb-6" type="file" id="imgfile">
-               <ul id="image" class="flex flex-wrap pt-2">
-                    <li id="wesley" class="border-4 border-indigo-500 opacity-75 ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="wesley.jpg"></div></li>
-                    <li id="cross" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="cross.jpg"></div></li>
-                    <li id="christ" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="christ.jpg"></div></li>
-                    <li id="bible" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="bible.jpg"></div></li>
-                    <li id="paul" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="paul.jpg"></div></li>
-                    <li id="luther" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="luther.jpg"></div></li>
-                    <li id="kalvin" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="kalvin.png"></div></li>
-                    <li id="upload" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="chooseFile()"><div type="file" class="w-48 h-48 bg-gray-300 flex justify-center text-gray-600 text-6xl items-center">+</div></li>
-               </ul>
+               <input class="hidden" type="file" id="imgfile">
+               <div class="flex justify-center mb-6 mt-1">
+                    <ul id="image" class="flex flex-wrap">
+                         <li id="wesley" class="border-4 border-indigo-400 opacity-75 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="wesley.jpg"></div></li>
+                         <li id="cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="cross.jpg"></div></li>
+                         <li id="christ" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="christ.jpg"></div></li>
+                         <li id="bible" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="bible.jpg"></div></li>
+                         <li id="paul" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="paul.jpg"></div></li>
+                         <li id="luther" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="luther.jpg"></div></li>
+                         <li id="kalvin" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="kalvin.png"></div></li>
+                         <li id="3cross" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="3cross.jpg"></div></li>
+                         <li id="fish" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="fish.jpeg"></div></li>
+                         <li id="christ2" class="border-4 opacity-50 border-white cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src="christ2.jpg"></div></li>
+                         <li id="upload" class="border-4 opacity-50 border-white cursor-pointer" onclick="chooseFile()"><div type="file" class="w-48 h-48 bg-gray-300 flex justify-center text-gray-600 text-6xl items-center">+</div></li>
+                    </ul>
+               </div>
           </form>
           <div class="flex justify-center mt-4">
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white mx-1 hover:bg-gray-500 cursor-pointer text-sm w-60" id="generate" onclick="generate()">Generál</button>
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="reset()">Töröl</button>
           </div>
           <div id="imgDiv" class="mt-8 relative bg-white hidden">
-               <img src="wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
+               <img src="wesley.jpg" class="object-contain opacity-90 w-full h-full" id="bgimage">
+               <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.8);">
+                    <img src="met.png" class="h-20">
+                    <div class="flex">
+                         <p class="uppercase mr-4">www.facebook.com/metegyhaz</p>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-gray-700 fill-current" viewBox="0 0 24 24">
+                              <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                         </svg>
+                    </div>
+               </div>
                <div class="text-gray-800 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
                     <div class="opacity-80">
-                         <div id="imgText" class="relative font-medium bg-white p-20 px-20" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: rgba(102, 171, 207, 0.5);">
+                         <div id="imgText" class="relative font-medium bg-white p-20 pb-20 px-20" style="left:-50%; font-family: 'EB Garamond'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
                               <p id="quoteText">„”</p>
                               <p id="quoteAuthor" class="italic mt-3 text-gray-700" style="font-size:0.9em;">()</p>
                          </div>
                     </div>
                </div>
           </div>
-          <div class="mt-8 hidden" id="canvasDiv">
-               <canvas id="canvas2"></canvas>
-          </div>
+          <div class="mt-8 hidden" id="canvasDiv"></div>
      </div>
      <script src="https://cdn.rawgit.com/tsayen/dom-to-image/bfc00a6c5bba731027820199acd7b0a6e92149d8/dist/dom-to-image.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.2.2/html2canvas.min.js"></script>
@@ -164,12 +187,12 @@
                background = element;
                for (var node of document.getElementById('image').children) {
                     node.classList.remove("opacity-75");
-                    node.classList.remove("border-indigo-500");
+                    node.classList.remove("border-indigo-400");
                     node.classList.add("border-white");
                     node.classList.add("opacity-50");
                }
                background.classList.add("opacity-75");
-               background.classList.add("border-indigo-500");
+               background.classList.add("border-indigo-400");
                background.classList.remove("border-white");
                background.classList.remove("opacity-50");
                if (element.getAttribute('name') == 'plus') {
@@ -182,9 +205,23 @@
                var theme = element.id;
                for (var node of document.getElementById('theme').children) {
                     node.querySelector("div").classList.add("opacity-100");
-                    node.querySelector("div").classList.remove("opacity-90");
+                    node.querySelector("div").classList.remove("opacity-80");
+                    if (node.querySelector("div").id == 'light') {
+                         node.querySelector("div").classList.add("text-gray-500");
+                         node.querySelector("div").classList.remove("text-gray-600");
+                    } else {
+                         node.querySelector("div").classList.add("text-gray-300");
+                         node.querySelector("div").classList.remove("text-gray-200");
+                    }
                }
-               element.classList.add("opacity-90");
+               if (element.id == 'light') {
+                    element.classList.remove("text-gray-500");
+                    element.classList.add("text-gray-600");
+               } else {
+                    element.classList.remove("text-gray-300");
+                    element.classList.add("text-gray-200");
+               }
+               element.classList.add("opacity-80");
                element.classList.remove("opacity-100");
                if (theme == 'light') {
                     document.getElementById('imgDiv').classList.add('bg-white');
@@ -197,7 +234,7 @@
                     document.getElementById('quoteText').classList.remove('text-gray-300');
                     document.getElementById('quoteAuthor').classList.add('text-gray-700');
                     document.getElementById('quoteAuthor').classList.remove('text-gray-400');
-                    document.getElementById('imgText').style.borderColor = 'rgba(102, 171, 207, 0.64)';
+                    document.getElementById('imgText').style.borderColor = 'rgba(208, 209, 214, 0.32)';
                } else {
                     document.getElementById('imgDiv').classList.add('bg-black');
                     document.getElementById('imgDiv').classList.remove('bg-white');
@@ -209,19 +246,48 @@
                     document.getElementById('quoteText').classList.add('text-gray-300');
                     document.getElementById('quoteAuthor').classList.remove('text-gray-700');
                     document.getElementById('quoteAuthor').classList.add('text-gray-400');
-                    document.getElementById('imgText').style.borderColor = 'rgba(82, 75, 87, 0.64)';
+                    document.getElementById('imgText').style.borderColor = 'rgba(82, 75, 87, 0.32)';
+               }
+          }
+          function setHeader(element) {
+               var theme = element.id;
+               for (var node of document.getElementById('header').children) {
+                    node.querySelector("div").classList.add("opacity-100");
+                    node.querySelector("div").classList.remove("opacity-80");
+                    if (node.querySelector("div").id == 'empty') {
+                         node.querySelector("div").classList.add("text-gray-500");
+                         node.querySelector("div").classList.remove("text-gray-600");
+                    } else {
+                         node.querySelector("div").classList.add("text-gray-300");
+                         node.querySelector("div").classList.remove("text-gray-200");
+                    }
+               }
+               if (element.id == 'empty') {
+                    element.classList.remove("text-gray-500");
+                    element.classList.add("text-gray-600");
+               } else {
+                    element.classList.remove("text-gray-300");
+                    element.classList.add("text-gray-200");
+               }
+               element.classList.add("opacity-80");
+               element.classList.remove("opacity-100");
+               if (element.id == 'empty') {
+                    document.getElementById('imgHeader').classList.add('hidden');
+               } else {
+                    document.getElementById('imgHeader').classList.remove('hidden');
                }
           }
           function chooseFile() {
                document.getElementById('imgfile').click();
           }
           function generate() {
+               reset();
                document.getElementById('quoteText').textContent = '„' + document.getElementById('quote').value + '”';
                document.getElementById('quoteAuthor').textContent = '(' + document.getElementById('author').value + ')';
                document.getElementById('imgDiv').classList.remove('hidden');
-               document.getElementById('canvasDiv').innerHTML = "";
-               document.getElementById('imgText').style.fontSize = (1.68 * document.getElementById('fontsize').value / 100).toString() + 'rem';
+               document.getElementById('imgText').style.fontSize = (1.48  * document.getElementById('fontsize').value / 100).toString() + 'rem';
                html2canvas(document.getElementById('imgDiv')).then(function(arg) {
+                    reset();
                     arg.id = "canvas";
                     document.getElementById('canvasDiv').appendChild(arg);
                     document.getElementById('canvasDiv').classList.remove('hidden');
