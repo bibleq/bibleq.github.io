@@ -7,12 +7,13 @@ window.addEventListener('load', function() {
     document.querySelector('input[type="file"]').addEventListener('change', function() {
         if (this.files && this.files[0]) {
 
-                var images = document.getElementById('image');
+                var images = document.getElementById('image');                
+                images.innerHTML += '<li id="plus" name="plus" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src=""></div></li>'
+
                 var element = images.children[images.children.length - 1];
                 var img = element.querySelector('img');
                 var id = 'plus' + plusid.toString();
 
-                images.innerHTML += '<li id="plus" name="plus" class="border-4 opacity-50 border-white ml-1 cursor-pointer" onclick="setBackground(this)"><div class="w-48 h-48 bg-gray-300 flex justify-center"><img class="object-contain h-48" src=""></div></li>'
                 element.id = id;
                 plusid++;
 
