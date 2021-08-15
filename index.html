@@ -90,7 +90,7 @@
                <label for="logo" class="text-gray-600">Betűtípus:</label>
                <div x-data="{ open: false }" class="w-full mb-6 mt-1 relative">
                     <div class="flex justify-between items-center bg-gray-50 cursor-pointer rounded-lg border p-2 px-4" @click="open = !open">
-                         <div id="fontLabel">Amiri</div>
+                         <div id="fontLabel">Crimson Pro</div>
                          <svg version="1.1" class="text-gray-400 fill-current h-3 w-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                               width="123.97px" height="123.97px" viewBox="0 0 123.97 123.97" style="enable-background:new 0 0 123.97 123.97;"
                               xml:space="preserve">
@@ -101,10 +101,10 @@
                     </div>
                     <div class="absolute z-100 border w-full mt-2 bg-white flex-col" x-show="open" @click.away = "open = false">
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Amiri')" @click = "open = false">Amiri</div>
-                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Crimson Pro')" @click = "open = false">Crimson Pro</div>
-                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Merriweather')" @click = "open = false">Merriweather</div>
-                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('EB Garamond')" @click = "open = false">EB Garamond</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Cormorant Garamond')" @click = "open = false">Cormorant Garamond</div>
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Crimson Pro')" @click = "open = false">Crimson Pro</div>
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('EB Garamond')" @click = "open = false">EB Garamond</div>
+                         <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Merriweather')" @click = "open = false">Merriweather</div>
                     </div>
                </div>
                <label for="fontsize" class="text-gray-600">Téma:</label>
@@ -139,20 +139,21 @@
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white mx-1 hover:bg-gray-500 cursor-pointer text-sm w-60" id="generate" onclick="generate()">Generál</button>
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="restore()">Visszaállít</button>
           </div>
-          <div id="imgDiv" class="mt-8 relative bg-white hidden">
+          <div id="imgDiv" class="mt-8 relative bg-white hidden overflow-hidden" style="max-height: 830px;">
                <img src="img/original/wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
                <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.8);">
                     <img src="met.png" class="h-20">
-                    <div class="flex">
-                         <p class="uppercase mr-4">www.facebook.com/metegyhaz</p>
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-gray-700 fill-current" viewBox="0 0 24 24">
-                              <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                    <div class="flex items-center">
+                         <p class="uppercase mr-3 mb-3">www.facebook.com/metegyhaz</p>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 fill-current stroke-current" style="color: rgba(66, 103, 178, 0.75)" viewBox="-204.79995 -341.33325 1774.9329 2047.9995">
+                              <path d="M1365.333 682.667C1365.333 305.64 1059.693 0 682.667 0 305.64 0 0 305.64 0 682.667c0 340.738 249.641 623.16 576 674.373V880H402.667V682.667H576v-150.4c0-171.094 101.917-265.6 257.853-265.6 74.69 0 152.814 13.333 152.814 13.333v168h-86.083c-84.804 0-111.25 52.623-111.25 106.61v128.057h189.333L948.4 880H789.333v477.04c326.359-51.213 576-333.635 576-674.373"/>
+                              <path d="M948.4 880l30.267-197.333H789.333V554.609C789.333 500.623 815.78 448 900.584 448h86.083V280s-78.124-13.333-152.814-13.333c-155.936 0-257.853 94.506-257.853 265.6v150.4H402.667V880H576v477.04a687.805 687.805 0 00106.667 8.293c36.288 0 71.91-2.84 106.666-8.293V880H948.4" fill="#fff"/>
                          </svg>
                     </div>
                </div>
                <div class="text-gray-800 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
                     <div class="opacity-80">
-                         <div id="imgText" class="relative bg-white p-20 pb-20 px-20" style="left:-50%; font-family: 'Amiri'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
+                         <div id="imgText" class="relative bg-white p-20 pb-20 px-20" style="left:-50%; font-family: 'Crimson Pro'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
                               <p id="quoteText">„”</p>
                               <p id="quoteAuthor" class="italic mt-3 text-gray-700" style="font-size:0.9em;">()</p>
                          </div>
