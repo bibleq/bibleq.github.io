@@ -77,6 +77,7 @@ function setTheme(element) {
         document.getElementById('quoteAuthor').classList.add('text-gray-700');
         document.getElementById('quoteAuthor').classList.remove('text-gray-400');
         document.getElementById('imgText').style.borderColor = 'rgba(171, 173, 176, 0.32)';
+        document.getElementById('qmark').style.color = "rgba(107, 114, 128, 0.52)";
     } else {
         document.getElementById('imgDiv').classList.add('bg-black');
         document.getElementById('imgDiv').classList.remove('bg-white');
@@ -89,6 +90,7 @@ function setTheme(element) {
         document.getElementById('quoteAuthor').classList.remove('text-gray-700');
         document.getElementById('quoteAuthor').classList.add('text-gray-400');
         document.getElementById('imgText').style.borderColor = 'rgba(82, 75, 87, 0.32)';
+        document.getElementById('qmark').style.color = "rgba(156, 163, 175, 0.52)";
     }
 }
 function setHeader(element) {
