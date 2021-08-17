@@ -72,12 +72,12 @@ function setTheme(element) {
         document.getElementById('bgimage').classList.remove('opacity-80');
         document.getElementById('imgText').classList.add('bg-white');
         document.getElementById('imgText').classList.remove('bg-black');
-        document.getElementById('quoteText').classList.add('text-gray-800');
+        document.getElementById('quoteText').classList.add('text-gray-700');
         document.getElementById('quoteText').classList.remove('text-gray-300');
-        document.getElementById('quoteAuthor').classList.add('text-gray-700');
+        document.getElementById('quoteAuthor').classList.add('text-gray-600');
         document.getElementById('quoteAuthor').classList.remove('text-gray-400');
-        document.getElementById('imgText').style.borderColor = 'rgba(171, 173, 176, 0.32)';
-        document.getElementById('qmark').style.color = "rgba(107, 114, 128, 0.52)";
+        document.getElementById('imgText').style.borderColor = 'rgba(107, 114, 128, 0.28)';
+        document.getElementById('qmark').style.color = "rgba(107, 114, 128, 0.45)";
     } else {
         document.getElementById('imgDiv').classList.add('bg-black');
         document.getElementById('imgDiv').classList.remove('bg-white');
@@ -85,12 +85,12 @@ function setTheme(element) {
         document.getElementById('bgimage').classList.remove('opacity-70');
         document.getElementById('imgText').classList.add('bg-black');
         document.getElementById('imgText').classList.remove('bg-white');
-        document.getElementById('quoteText').classList.remove('text-gray-800');
+        document.getElementById('quoteText').classList.remove('text-gray-700');
         document.getElementById('quoteText').classList.add('text-gray-300');
-        document.getElementById('quoteAuthor').classList.remove('text-gray-700');
+        document.getElementById('quoteAuthor').classList.remove('text-gray-600');
         document.getElementById('quoteAuthor').classList.add('text-gray-400');
-        document.getElementById('imgText').style.borderColor = 'rgba(82, 75, 87, 0.32)';
-        document.getElementById('qmark').style.color = "rgba(156, 163, 175, 0.52)";
+        document.getElementById('imgText').style.borderColor = 'rgba(156, 163, 175, 0.28)';
+        document.getElementById('qmark').style.color = "rgba(156, 163, 175, 0.45)";
     }
 }
 function setHeader(element) {
@@ -137,7 +137,7 @@ function restore() {
     setBackground(document.getElementById('wesley'));
     setTheme(document.getElementById('light'));
     setHeader(document.getElementById('empty'));
-    setFont('Amiri');
+    setFont('Crimson Pro');
     document.getElementById('fontsize').value = '100';
     reset();
 }
