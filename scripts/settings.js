@@ -62,21 +62,27 @@ window.addEventListener('load', function() {
 });
 
 function setColor(element) {
-     var rgbsum = 0;
-     rgbsum += parseInt(element.id.substr(1, 2), 16);
-     rgbsum += parseInt(element.id.substr(3, 2), 16);
-     rgbsum += parseInt(element.id.substr(5, 2), 16);
+     var r = 0, g = 0, b = 0;
+     r += parseInt(element.id.substr(1, 2), 16);
+     g += parseInt(element.id.substr(3, 2), 16);
+     b += parseInt(element.id.substr(5, 2), 16);
      for (var color of document.getElementById('colorDiv').childNodes) {
           for (var shade of color.childNodes) {
                shade.classList.remove("border-4");
           }
      }
-     if (rgbsum < 380) {
+     if (r < 128) {
           element.classList.add("border-4");
-          element.style.borderColor = '#C5C4FE';
-     } else {
+          element.style.borderColor = '#F87171';
+     } else if (b < 128) {
+          element.classList.add("border-4");
+          element.style.borderColor = '#818CF8';
+     } else if (r + g + b > 350) {
           element.classList.add("border-4");
           element.style.borderColor = '#4B5563';
+     } else {
+          element.classList.add("border-4");
+          element.style.borderColor = '#34D399';
      }
      colortheme = element.style.backgroundColor.substring(4);
      colortheme = colortheme.substr(0, colortheme.length - 1);
