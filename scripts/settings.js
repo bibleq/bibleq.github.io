@@ -82,8 +82,8 @@ function setColor(element) {
      colortheme = colortheme.substr(0, colortheme.length - 1);
      document.getElementById('colorLabel').textContent = element.id;
      document.getElementById('colorFlag').style.backgroundColor = 'rgb(' + colortheme + ')';
-     document.getElementById('imgText').style.borderColor = 'rgba(' + colortheme + ', 0.72)';
-     document.getElementById('qmark').style.color = 'rgba(' + colortheme + ', 0.85)';
+     document.getElementById('imgText').style.borderColor = 'rgba(' + colortheme + ', 0.64)';
+     document.getElementById('qmark').style.color = 'rgba(' + colortheme + ', 0.64)';
 }
 
 function setBackground(element) {
