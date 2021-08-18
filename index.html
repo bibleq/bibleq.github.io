@@ -2,7 +2,9 @@
 <html lang="hu">
 <head>
      <meta charset="utf-8">
-     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>bibleQ</title>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet">
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,81 +16,81 @@
      <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
+     <style>
+          .text-shadow {
+               text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+          }
+          
+          .text-shadow-md {
+               text-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 2px 4px rgba(0,0,0,0.08);
+          }
+          
+          .text-shadow-lg {
+               text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+          }
+          .text-shadow-white {
+               text-shadow: 0 2px 4px rgba(255,255,255,0.10);
+          }
+          
+          .text-shadow-white-md {
+               text-shadow: 0 4px 8px rgba(255,255,255,0.20), 0 2px 4px rgba(0,0,0,0.24);
+          }
+          
+          .text-shadow-white-lg {
+               text-shadow: 0 15px 30px rgba(255,255,255,0.51), 0 5px 15px rgba(0,0,0,0.58);
+          }
+          
+          .text-shadow-none {
+               text-shadow: none;
+          }
+          .blur {
+               filter: blur(3px);
+               -webkit-filter: blur(3px);
+          }
+          .grayscale {
+               filter: grayscale(100%);
+               -webkit-filter: grayscale(100%);
+          }
+         @media screen and (-webkit-min-device-pixel-ratio: 0) {
+          
+             input[type="range"]::-webkit-slider-thumb {
+                    width: 15px;
+                    -webkit-appearance: none;
+                         appearance: none;
+                    height: 15px;
+                    cursor: ew-resize;
+                    background: #FFF;
+                    box-shadow: -405px 0 0 400px #9584FF;
+                    border-radius: 50%;
+                 
+             }
+             input[type="range"]::-moz-range-thumb {
+                    width: 15px;
+                    -moz-appearance: none;
+                         appearance: none;
+                    height: 15px;
+                    cursor: ew-resize;
+                    background: #FFF;
+                    border: 0px;
+                    box-shadow: -405px 0 0 400px #9584FF;
+                    border-radius: 50%;
+                 
+               }
+          }
+     </style>
 </head>
-<style>
-     .text-shadow {
-          text-shadow: 0 2px 4px rgba(0,0,0,0.10);
-     }
-     
-     .text-shadow-md {
-          text-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 2px 4px rgba(0,0,0,0.08);
-     }
-     
-     .text-shadow-lg {
-          text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
-     }
-     .text-shadow-white {
-          text-shadow: 0 2px 4px rgba(255,255,255,0.10);
-     }
-     
-     .text-shadow-white-md {
-          text-shadow: 0 4px 8px rgba(255,255,255,0.20), 0 2px 4px rgba(0,0,0,0.24);
-     }
-     
-     .text-shadow-white-lg {
-          text-shadow: 0 15px 30px rgba(255,255,255,0.51), 0 5px 15px rgba(0,0,0,0.58);
-     }
-     
-     .text-shadow-none {
-          text-shadow: none;
-     }
-     .blur {
-          filter: blur(3px);
-          -webkit-filter: blur(3px);
-     }
-     .grayscale {
-          filter: grayscale(100%);
-          -webkit-filter: grayscale(100%);
-     }
-    @media screen and (-webkit-min-device-pixel-ratio: 0) {
-     
-        input[type="range"]::-webkit-slider-thumb {
-            width: 15px;
-            -webkit-appearance: none;
-  			appearance: none;
-            height: 15px;
-            cursor: ew-resize;
-            background: #FFF;
-            box-shadow: -405px 0 0 400px #9584FF;
-            border-radius: 50%;
-            
-        }
-        input[type="range"]::-moz-range-thumb {
-            width: 15px;
-            -moz-appearance: none;
-  			appearance: none;
-            height: 15px;
-            cursor: ew-resize;
-            background: #FFF;
-            border: 0px;
-            box-shadow: -405px 0 0 400px #9584FF;
-            border-radius: 50%;
-            
-        }
-    }
-</style>
-<body class="px-2" class="bg-gray-50" style="font-family: 'Montserrat', sans-serif; min-width: 1024px;">
-     <div class="container max-w-4xl mx-auto text-gray-800 p-8 border shadow shadow-md mt-12 mb-12">
+<body class="px-2 bg-gray-50" style="font-family: 'Montserrat', sans-serif; min-width: 1024px;">
+     <div class="container max-w-7xl mx-auto text-gray-800 p-8 border shadow shadow-md mt-12 mb-12">
           <h1 class="text-gray-500 text-xl">Bibliai idézetecskék &lt;3</h1>   
           <form class="mt-6">
                <label for="quote" class="text-gray-600">Idézet:</label>
-               <textarea class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-3" id="quote" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+               <textarea class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-3 rounded-lg" id="text" maxlength="384">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
                <label for="author" class="text-gray-600">Szerző:</label>
-               <input type="text" class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-6" id="author" value="John Doe 13:22">
+               <input type="text" class="border border-gray-300 w-full p-2 px-3 focus:outline-none mt-1 mb-6 rounded-lg" id="author" value="John Doe 13:22">
                <label for="fontsize" class="text-gray-600">Betűméret:</label>
-               <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-6 mt-1" type="range" min="50" max="200" step="5" value="100" />
-               <label for="logo" class="text-gray-600">Betűtípus:</label>
-               <div x-data="{ open: false }" class="w-full mb-6 mt-1 relative">
+               <input id="fontsize" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-full mb-6 mt-1 rounded-lg" type="range" min="50" max="200" step="5" value="100" />
+               <label for="font" class="text-gray-600">Betűtípus:</label>
+               <div x-data="{ open: false }" class="w-full mb-6 mt-1 relative" id="font">
                     <div class="flex justify-between items-center bg-gray-50 cursor-pointer rounded-lg border p-2 px-4" @click="open = !open">
                          <div id="fontLabel">Crimson Pro</div>
                          <svg version="1.1" class="text-gray-400 fill-current h-3 w-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -99,7 +101,7 @@
                                    c-5.3,5.7-4.8,14.8,0.8,20.3L51.802,96.062z"/>
                          </svg>
                     </div>
-                    <div class="absolute z-100 border w-full mt-2 bg-white flex-col" x-show="open" @click.away = "open = false">
+                    <div class="absolute z-50 border w-full mt-2 bg-white flex-col" x-show="open" @click.away = "open = false">
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Amiri')" @click = "open = false">Amiri</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Cormorant Garamond')" @click = "open = false">Cormorant Garamond</div>
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Crimson Pro')" @click = "open = false">Crimson Pro</div>
@@ -107,17 +109,36 @@
                          <div class="py-3 px-4 cursor-pointer hover:bg-gray-50" onclick="setFont('Merriweather')" @click = "open = false">Merriweather</div>
                     </div>
                </div>
-               <label for="fontsize" class="text-gray-600">Téma:</label>
+               <label for="colortheme" class="text-gray-600">Színtéma:</label>
+               <div class="relative flex z-10 w-full mt-1 mb-5" x-data="{ open: false }">
+                    <div class="flex justify-between items-center bg-gray-50 cursor-pointer rounded-lg border p-2 px-4 w-full" @click="open = !open">
+                         <div class="flex items-center">
+                              <div class="mr-3 h-5 w-5 bg-indigo-500 border" id="colorFlag"></div>
+                              <div id="colorLabel" class="text-lg">#6B7280</div>
+                         </div>
+                         <svg version="1.1" class="text-gray-400 fill-current h-3 w-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                              width="123.97px" height="123.97px" viewBox="0 0 123.97 123.97" style="enable-background:new 0 0 123.97 123.97;"
+                              xml:space="preserve">
+                              <path d="M51.802,96.062c2.801,2.801,6.5,4.2,10.2,4.2s7.4-1.399,10.2-4.2l47.3-47.3c5.5-5.5,6.101-14.6,0.8-20.3
+                                   c-5.6-6.1-15.1-6.3-20.899-0.5l-30.4,30.3c-3.899,3.9-10.2,3.9-14.1,0l-30.3-30.3c-5.801-5.8-15.301-5.7-20.9,0.5
+                                   c-5.3,5.7-4.8,14.8,0.8,20.3L51.802,96.062z"/>
+                         </svg>
+                    </div>
+                    <div class="flex justify-end w-full absolute">
+                         <div class="z-100 border mt-12 bg-white flex-col p-4 rounded" x-show="open" @click.away = "open = false" id="colorDiv"></div>
+                    </div>
+               </div>
+               <label for="theme" class="text-gray-600">Téma:</label>
                <div class="flex mb-6 w-full mt-1" id="theme">
                     <div id="light" style="border-width: 3px;" class="w-1/2 border-indigo-300 h-20 bg-gray-50 flex justify-center items-center text-gray-500 text-sm font-medium cursor-pointer" onclick="setTheme(this)">Világos</div>
                     <div id="dark" style="border-width: 3px;" class="w-1/2 ml-2 h-20 bg-gray-500 flex justify-center items-center text-gray-200 text-sm font-medium cursor-pointer" onclick="setTheme(this)">Sötét</div>
                </div>
-               <label for="logo" class="text-gray-600">Fejléc:</label>
+               <label for="header" class="text-gray-600">Fejléc:</label>
                <div class="flex mb-6 w-full mt-1" id="header">
                     <div id="empty" style="border-width: 3px;" class="w-1/2 border-2 border-indigo-300 h-20 bg-gray-50 flex justify-center items-center text-gray-500 text-sm font-medium cursor-pointer" onclick="setHeader(this)">Üres fejléc</div>
                     <div id="met" style="border-width: 3px;" class="w-1/2 ml-2 border h-20 bg-gray-500 flex justify-center items-center text-gray-200 text-sm font-medium cursor-pointer" onclick="setHeader(this)">MET fejléc</div>
                </div>
-               <label for="image" class="text-gray-600">Háttér:</label>
+               <label for="imgfile" class="text-gray-600">Háttér:</label>
                <input class="hidden" type="file" id="imgfile">
                <div class="flex justify-center mb-6 mt-1">
                     <ul id="image" class="flex flex-wrap">
@@ -139,11 +160,11 @@
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white mx-1 hover:bg-gray-500 cursor-pointer text-sm w-60" id="generate" onclick="generate()">Generál</button>
                <button class="bg-gray-400 p-3 px-5 rounded-sm text-white hover:bg-gray-500 cursor-pointer text-sm w-60" onclick="restore()">Visszaállít</button>
           </div>
-          <div id="imgDiv" class="mt-8 relative bg-white hidden overflow-hidden" style="max-height: 830px;">
+          <div id="imgDiv" class="mt-8 relative bg-black hidden overflow-hidden" style="max-height: 1214px;">
                <img src="img/original/wesley.jpg" class="object-contain opacity-90 w-full" id="bgimage">
-               <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.9);">
-                    <img src="met.png" class="h-20">
-                    <div class="flex items-center">
+               <div id="imgHeader" class="w-full opacity-100 flex justify-between items-center absolute top-0 p-4 hidden" style="font-size:1rem; line-height:normal; font-family: 'Montserrat'; background-color: rgb(255, 255, 255, 0.94);">
+                    <img src="met.png" class="h-28">
+                    <div class="flex items-center text-lg">
                          <p class="uppercase mr-3 mb-3">www.facebook.com/metegyhaz</p>
                          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 fill-current stroke-current" style="color: rgba(66, 103, 178, 0.75)" viewBox="-204.79995 -341.33325 1774.9329 2047.9995">
                               <path d="M1365.333 682.667C1365.333 305.64 1059.693 0 682.667 0 305.64 0 0 305.64 0 682.667c0 340.738 249.641 623.16 576 674.373V880H402.667V682.667H576v-150.4c0-171.094 101.917-265.6 257.853-265.6 74.69 0 152.814 13.333 152.814 13.333v168h-86.083c-84.804 0-111.25 52.623-111.25 106.61v128.057h189.333L948.4 880H789.333v477.04c326.359-51.213 576-333.635 576-674.373"/>
@@ -152,14 +173,14 @@
                     </div>
                </div>
                <div class="text-gray-700 absolute tracking-wider w-full" style="left: 50%; bottom:10%">
-                    <div style="opacity: 85%;">
-                         <div id="imgText" class="relative bg-white py-20 px-16" style="left:-50%; font-family: 'Crimson Pro'; line-height: 2em; border-left-width:10px; border-color: rgba(171, 173, 176, 0.5);">
+                    <div style="opacity: 92%;">
+                         <div id="imgText" class="relative py-32 bg-white px-24" style="left:-50%; font-family: 'Crimson Pro'; line-height: 2em; border-left-width:12px; border-color: rgba(156, 163, 175, 0.5);">
                               <div>
                                    <div id="quote" class="flex">
-                                        <svg id="qmark" xmlns="http://www.w3.org/2000/svg" class="mt-1 text-gray-400 fill-current flex-shrink-0" style="color: rgba(107, 114, 128, 0.45); height: 1.36em;" viewBox="0 0 24 24">
+                                        <svg id="qmark" xmlns="http://www.w3.org/2000/svg" class="z-100 mt-1 text-gray-400 fill-current flex-shrink-0" style="color: rgba(156, 163, 175, 0.45); height: 1.36em;" viewBox="0 0 24 24">
                                              <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
                                         </svg>
-                                        <div class="ml-5">
+                                        <div class="ml-6">
                                              <p id="quoteText">„”</p>
                                              <p id="quoteAuthor" class="italic mt-3 text-gray-600" style="font-size:0.9em;">()</p>
                                         </div>

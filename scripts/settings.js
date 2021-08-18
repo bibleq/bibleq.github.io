@@ -1,8 +1,33 @@
 var background = document.getElementById('wesley');
 var plusimgs = new Object();
 var plusid = 1;
+var colortheme = '#9CA3AF';
+
+var colors = [];
+colors.push(['#F9FAFB', '#F3F4F6', '#E5E7EB', '#D1D5DB', '#9CA3AF', '#6B7280', '#4B5563', '#374151', '#1F2937', '#111827']);
+colors.push(['#FDF2F8', '#FCE7F3', '#FBCFE8', '#F9A8D4', '#F472B6', '#EC4899', '#DB2777', '#BE185D', '#9D174D', '#831843']);
+colors.push(['#FEF2F2', '#FEE2E2', '#FECACA', '#FCA5A5', '#F87171', '#EF4444', '#DC2626', '#B91C1C', '#991B1B', '#7F1D1D']);
+colors.push(['#FFFBEB', '#FEF3C7', '#FDE68A', '#FCD34D', '#FBBF24', '#F59E0B', '#D97706', '#B45309', '#92400E', '#78350F']);
+colors.push(['#ECFDF5', '#D1FAE5', '#A7F3D0', '#6EE7B7', '#34D399', '#10B981', '#059669', '#047857', '#065F46', '#064E3B']);
+colors.push(['#EFF6FF', '#DBEAFE', '#BFDBFE', '#93C5FD', '#60A5FA', '#3B82F6', '#2563EB', '#1D4ED8', '#1E40AF', '#1E3A8A']);
+colors.push(['#EEF2FF', '#E0E7FF', '#C7D2FE', '#A5B4FC', '#818CF8', '#6366F1', '#4F46E5', '#4338CA', '#3730A3', '#312E81']);
+colors.push(['#F5F3FF', '#EDE9FE', '#DDD6FE', '#C4B5FD', '#A78BFA', '#8B5CF6', '#7C3AED', '#6D28D9', '#5B21B6', '#4C1D95']);
 
 window.addEventListener('load', function() {
+
+     var colorDiv = this.document.getElementById('colorDiv');
+     for (var color of colors) {
+          colorDiv.innerHTML += '<div class="flex my-2 justify-end"></div>';
+          var lastChild = colorDiv.childNodes[colorDiv.childNodes.length - 1];
+
+          for (var shade of color) {
+               lastChild.innerHTML += '<div class="rounded-full w-10 h-10 mx-1" onclick="setColor(this)"></div>'
+               var lastItem = lastChild.childNodes[lastChild.childNodes.length - 1];
+               lastItem.classList.add("cursor-pointer");
+               lastItem.style.backgroundColor = shade;
+               lastItem.id = shade;
+          }
+     }
 
     document.querySelector('input[type="file"]').addEventListener('change', function() {
         if (this.files && this.files[0]) {
@@ -33,7 +58,34 @@ window.addEventListener('load', function() {
                 images.appendChild(newUpload);
         }
     });
+    restore();
 });
+
+function setColor(element) {
+     var rgbsum = 0;
+     rgbsum += parseInt(element.id.substr(1, 2), 16);
+     rgbsum += parseInt(element.id.substr(3, 2), 16);
+     rgbsum += parseInt(element.id.substr(5, 2), 16);
+     for (var color of document.getElementById('colorDiv').childNodes) {
+          for (var shade of color.childNodes) {
+               shade.classList.remove("border-4");
+          }
+     }
+     if (rgbsum < 380) {
+          element.classList.add("border-4");
+          element.style.borderColor = '#C5C4FE';
+     } else {
+          element.classList.add("border-4");
+          element.style.borderColor = '#4B5563';
+     }
+     colortheme = element.style.backgroundColor.substring(4);
+     colortheme = colortheme.substr(0, colortheme.length - 1);
+     document.getElementById('colorLabel').textContent = element.id;
+     document.getElementById('colorFlag').style.backgroundColor = 'rgb(' + colortheme + ')';
+     document.getElementById('imgText').style.borderColor = 'rgba(' + colortheme + ', 0.72)';
+     document.getElementById('qmark').style.color = 'rgba(' + colortheme + ', 0.85)';
+}
+
 function setBackground(element) {
     background = element;
     for (var node of document.getElementById('image').children) {
@@ -66,9 +118,9 @@ function setTheme(element) {
     }
     element.classList.add("border-indigo-300");
     if (theme == 'light') {
-        document.getElementById('imgDiv').classList.add('bg-white');
         document.getElementById('imgDiv').classList.remove('bg-black');
-        document.getElementById('bgimage').classList.add('opacity-70');
+        document.getElementById('imgDiv').classList.add('bg-black');
+        document.getElementById('bgimage').classList.add('opacity-90');
         document.getElementById('bgimage').classList.remove('opacity-80');
         document.getElementById('imgText').classList.add('bg-white');
         document.getElementById('imgText').classList.remove('bg-black');
@@ -76,23 +128,20 @@ function setTheme(element) {
         document.getElementById('quoteText').classList.remove('text-gray-300');
         document.getElementById('quoteAuthor').classList.add('text-gray-600');
         document.getElementById('quoteAuthor').classList.remove('text-gray-400');
-        document.getElementById('imgText').style.borderColor = 'rgba(107, 114, 128, 0.28)';
-        document.getElementById('qmark').style.color = "rgba(107, 114, 128, 0.45)";
     } else {
+        document.getElementById('imgDiv').classList.remove('bg-black');
         document.getElementById('imgDiv').classList.add('bg-black');
-        document.getElementById('imgDiv').classList.remove('bg-white');
-        document.getElementById('bgimage').classList.add('opacity-80');
-        document.getElementById('bgimage').classList.remove('opacity-70');
+        document.getElementById('bgimage').classList.add('opacity-90');
+        document.getElementById('bgimage').classList.remove('opacity-80');
         document.getElementById('imgText').classList.add('bg-black');
         document.getElementById('imgText').classList.remove('bg-white');
         document.getElementById('quoteText').classList.remove('text-gray-700');
         document.getElementById('quoteText').classList.add('text-gray-300');
         document.getElementById('quoteAuthor').classList.remove('text-gray-600');
         document.getElementById('quoteAuthor').classList.add('text-gray-400');
-        document.getElementById('imgText').style.borderColor = 'rgba(156, 163, 175, 0.28)';
-        document.getElementById('qmark').style.color = "rgba(156, 163, 175, 0.45)";
     }
 }
+
 function setHeader(element) {
     for (var node of document.getElementById('header').children) {
         node.classList.remove("border-indigo-300");
@@ -104,15 +153,17 @@ function setHeader(element) {
         document.getElementById('imgHeader').classList.remove('hidden');
     }
 }
+
 function chooseFile() {
     document.getElementById('imgfile').click();
 }
+
 function generate() {
     reset();
-    document.getElementById('quoteText').textContent = '„' + document.getElementById('quote').value + '”';
+    document.getElementById('quoteText').textContent = '„' + document.getElementById('text').value + '”';
     document.getElementById('quoteAuthor').textContent = '(' + document.getElementById('author').value + ')';
     document.getElementById('imgDiv').classList.remove('hidden');
-    document.getElementById('imgText').style.fontSize = (1.48  * document.getElementById('fontsize').value / 100).toString() + 'rem';
+    document.getElementById('imgText').style.fontSize = (1.72  * document.getElementById('fontsize').value / 100).toString() + 'rem';
 
     html2canvas(document.getElementById('imgDiv')).then(function(arg) {
         reset();
@@ -125,7 +176,7 @@ function generate() {
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var height = arg.height - 1;
-        var width = arg.width;
+        var width = arg.width - 1;
 
         canvas.width = width;
         canvas.height = height;
@@ -133,14 +184,17 @@ function generate() {
         arg.remove();
     });
 }
+
 function restore() {
     setBackground(document.getElementById('wesley'));
     setTheme(document.getElementById('light'));
+    setColor(document.getElementById('#6B7280'));
     setHeader(document.getElementById('empty'));
     setFont('Crimson Pro');
     document.getElementById('fontsize').value = '100';
     reset();
 }
+
 function reset() {
     document.getElementById('canvasDiv').innerHTML = "";
 }
