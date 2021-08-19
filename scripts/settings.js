@@ -128,8 +128,7 @@ function setTheme(element) {
         document.getElementById('imgDiv').classList.add('bg-black');
         document.getElementById('bgimage').classList.add('opacity-90');
         document.getElementById('bgimage').classList.remove('opacity-80');
-        document.getElementById('imgText').classList.add('bg-white');
-        document.getElementById('imgText').classList.remove('bg-black');
+        document.getElementById('imgText').style.backgroundColor = "rgba(255, 255, 255, 0.95)";
         document.getElementById('quoteText').classList.add('text-gray-700');
         document.getElementById('quoteText').classList.remove('text-gray-300');
         document.getElementById('quoteAuthor').classList.add('text-gray-600');
@@ -138,9 +137,8 @@ function setTheme(element) {
         document.getElementById('imgDiv').classList.remove('bg-black');
         document.getElementById('imgDiv').classList.add('bg-black');
         document.getElementById('bgimage').classList.add('opacity-90');
-        document.getElementById('bgimage').classList.remove('opacity-80');
-        document.getElementById('imgText').classList.add('bg-black');
-        document.getElementById('imgText').classList.remove('bg-white');
+        document.getElementById('bgimage').classList.remove('opacity-80');     
+        document.getElementById('imgText').style.backgroundColor = "rgba(0, 0, 0, 0.95)";
         document.getElementById('quoteText').classList.remove('text-gray-700');
         document.getElementById('quoteText').classList.add('text-gray-300');
         document.getElementById('quoteAuthor').classList.remove('text-gray-600');
@@ -169,7 +167,7 @@ function generate() {
     document.getElementById('quoteText').textContent = '„' + document.getElementById('text').value + '”';
     document.getElementById('quoteAuthor').textContent = '(' + document.getElementById('author').value + ')';
     document.getElementById('imgDiv').classList.remove('hidden');
-    document.getElementById('imgText').style.fontSize = (1.72  * document.getElementById('fontsize').value / 100).toString() + 'rem';
+    document.getElementById('imgText').style.fontSize = (1.8 * document.getElementById('fontsize').value / 100).toString() + 'rem';
 
     html2canvas(document.getElementById('imgDiv')).then(function(arg) {
         reset();
